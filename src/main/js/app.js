@@ -9,7 +9,7 @@ const PageNuevoUsuario = require('./pages/nuevo-usuario');
 const PageEditarUsuario = require('./pages/editar-usuario');
 const PageEditarMascota = require('./pages/editar-mascota');
 const PageVerEspecialista = require('./pages/ver-especialista');
-const PageNuevoIntegrante = require('./pages/nuevo-integrante');
+const PageNuevoPaciente = require('./pages/nuevo-paciente');
 
 const router = createBrowserRouter([
 	{path: '/', element: <PageHome />},
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
 	{path: '/editar-usuario/:id', element: <PageEditarUsuario />},
 	{path: '/editar-mascota/:id', element: <PageEditarMascota />},
 	{path: '/ver-especialista/:id', element: <PageVerEspecialista />},
-	{path: '/ver-especialista/:id/nuevo-integrante', element: <PageNuevoIntegrante />},
+	{path: '/ver-especialista/:id/nuevo-paciente', element: <PageNuevoPaciente />},
 ])
 
 

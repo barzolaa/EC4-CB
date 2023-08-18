@@ -10,14 +10,14 @@ public class DatabaseLoader implements CommandLineRunner {
 	private final MascotaRepository repositoryI;
 	private final UsuarioRepository repositoryM;
 	private final EspecialistaRepository repositoryB;
-	private final IntegranteRepository repositoryN;
+	private final PacienteRepository repositoryN;
 
 	@Autowired
 	public DatabaseLoader(
 		MascotaRepository repositoryI,
 		 UsuarioRepository repositoryM,
 		 EspecialistaRepository repositoryB,
-		 IntegranteRepository repositoryN) {
+		 PacienteRepository repositoryN) {
 		this.repositoryI = repositoryI;
 		this.repositoryM = repositoryM;
 		this.repositoryB = repositoryB;
@@ -27,35 +27,35 @@ public class DatabaseLoader implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception {
 		
-		Mascota grande = new Mascota("Luna", "5 meses", "San Bernardo");
-		Mascota mediano = new Mascota("Bigotes", "1", "Schnauzer");
-		Mascota pequeño = new Mascota("Scoby", "3 meses", "Chihuahua");
+		Mascota A = new Mascota("Luna", "5 meses", "San Bernardo");
+		Mascota B = new Mascota("Bigotes", "1", "Schnauzer");
+		Mascota C = new Mascota("Scoby", "3 meses", "Chihuahua");
 		this.repositoryI.save(new Mascota("Ozi", "2 meses", "Pug"));
 		this.repositoryI.save(new Mascota("Star","4 meses","Shih Tzu"));
-		this.repositoryI.save(grande);
-		this.repositoryI.save(mediano);
-		this.repositoryI.save(pequeño);
+		this.repositoryI.save(A);
+		this.repositoryI.save(B);
+		this.repositoryI.save(C);
 		this.repositoryI.save(new Mascota("Alaska", "1 mes", "Husky siberiano"));
 
-		Usuario mFreddie = new Usuario("Freddie");
-		Usuario mBrian = new Usuario("Brian");
-		Usuario mRogerWaters = new Usuario("Roger Waters");
-		this.repositoryM.save(mFreddie);
-		this.repositoryM.save(mBrian);
-		this.repositoryM.save(mRogerWaters);
-		this.repositoryM.save(new Usuario("Roger"));
+		Usuario mEnrique = new Usuario("Enrique Hector");
+		Usuario mEduardo = new Usuario("Eduardo Jorge");
+		Usuario mGuillermo = new Usuario("Guillermo");
+		this.repositoryM.save(mEnrique);
+		this.repositoryM.save(mEduardo);
+		this.repositoryM.save(mGuillermo);
+		this.repositoryM.save(new Usuario("Roberto"));
 
-		Especialista bQueen = new Especialista("Queen");
-		Especialista bPinkFloyd = new Especialista("Pink Floyd");
-		this.repositoryB.save(bQueen);
-		this.repositoryB.save(bPinkFloyd);
+		Especialista bHellen = new Especialista("Hellen");
+		Especialista bRosario = new Especialista("Rosario");
+		this.repositoryB.save(bHellen);
+		this.repositoryB.save(bRosario);
 
-		Integrante intFreddie = new Integrante(bQueen, mFreddie, grande);
-		this.repositoryN.save(intFreddie);
-		Integrante intBrian = new Integrante(bQueen, mBrian, mediano);
-		this.repositoryN.save(intBrian);
-		Integrante intRogerWaters = new Integrante(bPinkFloyd, mRogerWaters, pequeño);
-		this.repositoryN.save(intRogerWaters);
+		Paciente intEnrique = new Paciente(bHellen, mEnrique, A);
+		this.repositoryN.save(intEnrique);
+		Paciente intEduardo = new Paciente(bHellen, mEduardo, B);
+		this.repositoryN.save(intEduardo);
+		Paciente intGuillermo = new Paciente(bRosario, mGuillermo, C);
+		this.repositoryN.save(intGuillermo);
 
 
 	}

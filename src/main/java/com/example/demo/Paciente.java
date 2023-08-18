@@ -7,7 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Integrante {
+public class Paciente {
 
 	private @Id @GeneratedValue Long id;
 
@@ -23,9 +23,9 @@ public class Integrante {
 	@JoinColumn(name = "id_mascota")
 	private Mascota mascota;
 
-	public Integrante() {}
+	public Paciente() {}
 
-	public Integrante (Especialista especialista, Usuario usuario, Mascota mascota) {
+	public Paciente (Especialista especialista, Usuario usuario, Mascota mascota) {
 		this.especialista = especialista;
 		this.usuario = usuario;
 		this.mascota = mascota;

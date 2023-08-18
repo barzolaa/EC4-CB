@@ -38,7 +38,7 @@ const PageEditarUsuario = ()=>{
                     type="text"
                     name="nombre"
                     value={usuario.nombre}
-                    onChange={(e)=>{setMusico({...usuario, nombre: e.target.value})}} />
+                    onChange={(e)=>{setUsuario({...usuario, nombre: e.target.value})}} />
                 <br/>
                 <input type='submit' value={`Editar Usuario ${id}`} />
             </form>
