@@ -41590,8 +41590,8 @@ var PageVerEspecialista = function PageVerEspecialista() {
     setEspecialista = _useState2[1];
   var _useState3 = useState([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    integrantes = _useState4[0],
-    setIntegrantes = _useState4[1];
+    pacientes = _useState4[0],
+    setPacientes = _useState4[1];
   useEffect(function () {
     url_especialista = '/api/especialistas/' + id;
     client({
@@ -41604,17 +41604,17 @@ var PageVerEspecialista = function PageVerEspecialista() {
       method: 'GET',
       path: url_especialista + '/formacion'
     }).done(function (response) {
-      return setIntegrantes(response.entity);
+      return setPacientes(response.entity);
     });
   }, []);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Especialista"), /*#__PURE__*/React.createElement("table", {
     border: "1"
-  }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, especialista.nombre)))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, "integrantes"), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, especialista.nombre)))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, "pacientes"), /*#__PURE__*/React.createElement("table", {
     border: "1"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Musico"), /*#__PURE__*/React.createElement("th", null, "Mascota"))), /*#__PURE__*/React.createElement("tbody", null, integrantes.map(function (integrante) {
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "USUARIO"), /*#__PURE__*/React.createElement("th", null, "MASCOTA"))), /*#__PURE__*/React.createElement("tbody", null, pacientes.map(function (paciente) {
     return /*#__PURE__*/React.createElement("tr", {
-      key: integrante.ID
-    }, /*#__PURE__*/React.createElement("td", null, integrante.MUSICO), /*#__PURE__*/React.createElement("td", null, integrante.MASCOTA));
+      key: paciente.ID
+    }, /*#__PURE__*/React.createElement("td", null, paciente.USUARIO), /*#__PURE__*/React.createElement("td", null, paciente.MASCOTA));
   }))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(Link, {
     to: "/ver-especialista/".concat(id, "/nuevo-especialista")
   }, "Agregar especialista"), " |", /*#__PURE__*/React.createElement(Link, {

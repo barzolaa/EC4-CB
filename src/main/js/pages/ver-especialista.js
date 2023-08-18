@@ -9,7 +9,7 @@ const PageVerEspecialista = () => {
 
     let { id } = useParams();
     const [especialista, setEspecialista] = useState({});
-    const [integrantes, setIntegrantes] = useState([]);
+    const [pacientes, setPacientes] = useState([]);
 
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const PageVerEspecialista = () => {
         client({
             method: 'GET',
             path: url_especialista + '/formacion'
-        }).done(response => setIntegrantes(response.entity))
+        }).done(response => setPacientes(response.entity))
         
     }, []);
 
@@ -42,22 +42,22 @@ const PageVerEspecialista = () => {
 
             <hr />
 
-            <h2>integrantes</h2>
+            <h2>pacientes</h2>
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Musico</th>
-                        <th>Mascota</th>
+                        <th>USUARIO</th>
+                        <th>MASCOTA</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    {integrantes.map(integrante => {
+                    {pacientes.map(paciente => {
 
                         return (
-                            <tr key={integrante.ID}>
-                                <td>{integrante.MUSICO}</td>
-                                <td>{integrante.MASCOTA}</td>
+                            <tr key={paciente.ID}>
+                                <td>{paciente.USUARIO}</td>
+                                <td>{paciente.MASCOTA}</td>
                             </tr>
                         )
 
