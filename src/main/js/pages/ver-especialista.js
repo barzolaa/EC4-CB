@@ -66,7 +66,7 @@ const PageVerEspecialista = () => {
                 </tbody>
             </table>
             <hr />
-            <Link to={`/ver-especialista/${id}/nuevo-especialista`}>Agregar especialista</Link> |  
+            <Link to={`/ver-especialista/${id}/nuevo-paciente`}>Agregar Paciente</Link> |  
             <Link to="/">Volver</Link>
         </>
     )

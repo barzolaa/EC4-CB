@@ -3,7 +3,7 @@ const {useState, useEffect} = require('react');
 const { Link,useParams } = require('react-router-dom');
 const client = require('../client');
 
-const NuevoPacientePage = () => {
+const PageNuevoPaciente = () => {
 
     let { id } = useParams();
     const [usuarios, setUsuarios] = useState([])
@@ -82,4 +82,4 @@ const NuevoPacientePage = () => {
     )
 }
 
-module.exports = NuevoPacientePage;
+module.exports = PageNuevoPaciente;

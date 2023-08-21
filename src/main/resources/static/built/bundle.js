@@ -41465,7 +41465,7 @@ var _require2 = __webpack_require__(/*! react-router-dom */ "./node_modules/reac
   Link = _require2.Link,
   useParams = _require2.useParams;
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-var NuevoPacientePage = function NuevoPacientePage() {
+var PageNuevoPaciente = function PageNuevoPaciente() {
   var _useParams = useParams(),
     id = _useParams.id;
   var _useState = useState([]),
@@ -41562,7 +41562,7 @@ var NuevoPacientePage = function NuevoPacientePage() {
     to: "/"
   }, "Volver"));
 };
-module.exports = NuevoPacientePage;
+module.exports = PageNuevoPaciente;
 
 /***/ }),
 
@@ -41681,8 +41681,8 @@ var PageVerEspecialista = function PageVerEspecialista() {
       key: paciente.ID
     }, /*#__PURE__*/React.createElement("td", null, paciente.USUARIO), /*#__PURE__*/React.createElement("td", null, paciente.MASCOTA));
   }))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(Link, {
-    to: "/ver-especialista/".concat(id, "/nuevo-especialista")
-  }, "Agregar especialista"), " |", /*#__PURE__*/React.createElement(Link, {
+    to: "/ver-especialista/".concat(id, "/nuevo-paciente")
+  }, "Agregar Paciente"), " |", /*#__PURE__*/React.createElement(Link, {
     to: "/"
   }, "Volver"));
 };
