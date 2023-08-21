@@ -40807,6 +40807,7 @@ var PageEditarUsuario = __webpack_require__(/*! ./pages/editar-usuario */ "./src
 var PageEditarMascota = __webpack_require__(/*! ./pages/editar-mascota */ "./src/main/js/pages/editar-mascota.js");
 var PageVerEspecialista = __webpack_require__(/*! ./pages/ver-especialista */ "./src/main/js/pages/ver-especialista.js");
 var PageNuevoPaciente = __webpack_require__(/*! ./pages/nuevo-paciente */ "./src/main/js/pages/nuevo-paciente.js");
+var PageNuevoEspecialista = __webpack_require__(/*! ./pages/nuevo-especialista */ "./src/main/js/pages/nuevo-especialista.js");
 var router = createBrowserRouter([{
   path: '/',
   element: /*#__PURE__*/React.createElement(PageHome, null)
@@ -40831,6 +40832,9 @@ var router = createBrowserRouter([{
 }, {
   path: '/ver-especialista/:id/nuevo-paciente',
   element: /*#__PURE__*/React.createElement(PageNuevoPaciente, null)
+}, {
+  path: '/nuevo-especialista',
+  element: /*#__PURE__*/React.createElement(PageNuevoEspecialista, null)
 }]);
 ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(RouterProvider, {
   router: router
@@ -41152,8 +41156,8 @@ var PageHome = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/React.createElement(EspecialistaList, {
         especialistas: this.state.especialistas
       }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nueva-especialista"
-      }, "Nueva Especialistas"))));
+        to: "/nuevo-especialista"
+      }, "Nuevo Especialistas"))));
     }
   }]);
   return PageHome;
@@ -41287,6 +41291,67 @@ var Especialista = /*#__PURE__*/function (_React$Component7) {
   return Especialista;
 }(React.Component);
 module.exports = PageHome;
+
+/***/ }),
+
+/***/ "./src/main/js/pages/nuevo-especialista.js":
+/*!*************************************************!*\
+  !*** ./src/main/js/pages/nuevo-especialista.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var _require = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js"),
+  Link = _require.Link;
+var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
+var _require2 = __webpack_require__(/*! react */ "./node_modules/react/index.js"),
+  useState = _require2.useState;
+function PageNuevoEspecialista() {
+  var _useState = useState(""),
+    _useState2 = _slicedToArray(_useState, 2),
+    nombre = _useState2[0],
+    setNombre = _useState2[1];
+  var handleSubmit = function handleSubmit(event) {
+    event.preventDefault();
+    client({
+      method: 'POST',
+      path: '/api/especialistas',
+      entity: {
+        nombre: nombre
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).done(function () {
+      return window.location = "/";
+    });
+  };
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Especialista"), /*#__PURE__*/React.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "nombre"
+  }, "Nombre"), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    id: "nombre",
+    name: "nombre",
+    onChange: function onChange(e) {
+      return setNombre(e.target.value);
+    }
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "submit",
+    value: "Nuevo Especialista"
+  })), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(Link, {
+    to: "/"
+  }, "Volver"));
+}
+module.exports = PageNuevoEspecialista;
 
 /***/ }),
 

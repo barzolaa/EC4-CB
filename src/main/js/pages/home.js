@@ -38,7 +38,7 @@ class PageHome extends React.Component {
 					<div style={{"width": "calc(100% / 3)"}}>
 						<Titulo entidad="Especialistas" emoji="👩🏼‍🎤" />
 						<EspecialistaList especialistas={this.state.especialistas} />
-						<Link to="/nueva-especialista">Nueva Especialistas</Link>
+						<Link to="/nuevo-especialista">Nuevo Especialistas</Link>
 					</div>
 				</div>
 
